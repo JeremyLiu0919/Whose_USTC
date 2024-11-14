@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html style="margin: 0%;padding: 0%; border: none;">
+<head style="margin: 0%;padding: 0%; border: none;">
+    <meta charset="utf-8">
+    <title>谁的科大官网</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <style>
+         .bg_image1
+         {
+            padding: 0%;
+            margin: 0%;
+            border: none;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width:1440px; /* 设置图片的宽度 */
+            height: 830px; /* 设置图片的高度，与宽度不同以实现不按比例缩放 */
+        }
+        .image-container1 {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .image-container1 img {
+            margin: 5px;
+            max-width: 100px; /* Adjust the size as needed */
+        }
+    </style>
+</head>
+<body style="margin: 0%;padding: 0%; border: none;height: 1900px;">
+  <!--<input type="text" disabled/>-->
+<img class="bg_image1" src="background.jpg"></img>
+<div style="position: absolute;left: 20px;top: 170px"><a href="reg.html"><button type="button" style="width: 200px;height: 80px;font-size: 20px;">登录账号</button></a></div>
+<div style="position: absolute;left: 20px;top: 820px"><h1 style="font-size: 30px;">搜索卡牌ID</h1></div>
+<div style="position: absolute;left: 220px;top: 910px"><input type="button" id="changeshow_confirm" value="确认"></div>
+<div style="position: absolute;left: 20px;top: 910px"><input type="text" id="changeshow"></div>
+<script>  
+function isPositiveInteger(value) 
+{
+  return /^\d+$/.test(value);
+}
+const basePath = 'D:/04-信息/01-自编代码C++/C2作业/刘厚振作业 -读取技能模式 - 云账号/客户端/图片'; // Path to your images folder
+const totalImages = 50; // Total number of images
+  let recommend_show=document.createElement("img");
+  let recommend_show_id=1;
+  recommend_show.style.cssText="position: absolute;left: 20px;top: 950px;height:100px;width:200px";
+  //recommend_show.src="`${basePath}/1.jpg`";
+  recommend_show.src="送达.jpg";
+  console.log(`送达.jpg`);
+  recommend_show.alt="这不是一个合理的id";
+  document.body.appendChild(recommend_show);  
+  function cin_changid()
+  {
+    if(isPositiveInteger(document.getElementById('changeshow').value))
+  {
+    recommend_show_id= document.getElementById('changeshow').value;
+    recommend_show.src=`${basePath}/${recommend_show_id}.jpg`;
+    document.getElementById('changeshow').value=null;
+  }
+  else
+  {
+    window.alert("输入非法表达式");
+    document.getElementById('changeshow').value=null;
+  }
+  }
+  document.getElementById('changeshow_confirm').onclick=cin_changid;
+</script>
+<!--
+<img style="position: absolute;left: 20px;top: 1850px;height:100px;width:200px" src="送达.jpg">
+
+<div style="position: absolute;  left: 10px; top: 180px;  width: 350px; height: 100px; ">  
+<a href="鐏按椋庣簿鐏?.html">----姘寸簿鐏?---------鐏簿鐏?---------椋庣簿鐏?--</a></div>
+<div style="position: absolute;  left: 10px; top: 200px;  width: 100px; height: 100px; ">  
+<img src="鐏簿鐏?.jpg" width="100" height="100" /></div>
+<div style="position: absolute;  left: 120px; top: 200px;  width: 100px; height: 100px; ">  
+<img src="姘寸簿鐏?.jpg" width="100" height="100" /></div>
+<div style="position: absolute ;  left: 230px; top: 200px;  width: 100px; height: 100px; ">  
+<img src="椋庣簿鐏?.jpg" width="100" height="100" /></div>
+-->
+</body>
+</html>
